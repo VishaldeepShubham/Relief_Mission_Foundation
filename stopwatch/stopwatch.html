@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stopwatch.css">
+    <title>Relief Mission Foundation - Stopwatch</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Relief Mission Foundation</h1>
+        <div class="subtitle">Stopwatch Application</div>
+        
+        <div class="timer-display" id="display">00:00:00.00</div>
+        
+        <div class="controls">
+            <button class="start-btn" id="startBtn" onclick="start()">Start</button>
+            <button class="pause-btn" id="pauseBtn" onclick="pause()" style="display: none;">Pause</button>
+            <button class="lap-btn" id="lapBtn" onclick="recordLap()" disabled>Lap</button>
+            <button class="reset-btn" onclick="reset()">Reset</button>
+        </div>
+
+        <div class="lap-section">
+            <h2>Lap Times</h2>
+            <div class="lap-list" id="lapList">
+                <div class="no-laps">No laps recorded yet</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="stopwatch.js"></script>
+</body>
+</html>

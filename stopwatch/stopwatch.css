@@ -1,0 +1,208 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #764ba2;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .timer-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 4em;
+            font-weight: bold;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .start-btn {
+            background: #10b981;
+            color: white;
+        }
+
+        .start-btn:hover {
+            background: #059669;
+        }
+
+        .pause-btn {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .pause-btn:hover {
+            background: #d97706;
+        }
+
+        .reset-btn {
+            background: #ef4444;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #dc2626;
+        }
+
+        .lap-btn {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .lap-btn:hover {
+            background: #2563eb;
+        }
+
+        .lap-section {
+            margin-top: 20px;
+        }
+
+        .lap-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .lap-list {
+            max-height: 300px;
+            overflow-y: auto;
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .lap-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            background: white;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .lap-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .lap-number {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .lap-time {
+            font-family: 'Courier New', monospace;
+            color: #334155;
+            font-weight: 500;
+        }
+
+        .no-laps {
+            text-align: center;
+            color: #94a3b8;
+            padding: 20px;
+            font-style: italic;
+        }
+
+        .lap-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .lap-list::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+
+        .lap-list::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .timer-display {
+                font-size: 2.5em;
+                padding: 20px;
+            }
+
+            button {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+        }
+   
