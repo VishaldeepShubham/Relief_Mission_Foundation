@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relief Mission Foundation - Donate And Help Us Now</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .top-bar {
+            background: #1a472a;
+            color: white;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2d7a4d;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2d7a4d;
+        }
+
+        .donate-btn {
+            background: #ff6b35;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .donate-btn:hover {
+            background: #e55a2b;
+        }
+
+        .hero {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .slide-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .slide-content .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .cta-primary {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .cta-primary:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+
+        .cta-secondary {
+            background: white;
+            color: #2d7a4d;
+        }
+
+        .cta-secondary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            background: #f9f9f9;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            color: #2d7a4d;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .mission-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .mission-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .mission-card h3 {
+            color: #2d7a4d;
+            margin-bottom: 15px;
+        }
+
+        .faq-section {
+            background: #f9f9f9;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #2d7a4d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 10px;
+            display: none;
+            color: #666;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        footer {
+            background: #1a472a;
+            color: white;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .slide-content h1 {
+                font-size: 32px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="contact-info">
+                <a href="tel:+917428411323">📞 +91 7428411323</a>
+                <a href="mailto:info@reliefmission.org">✉️ info@reliefmission.org</a>
+                <span>📍 Kotputli, Jaipur (303108)</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">Relief Mission Foundation</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#missions">Our Missions</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#donate" class="donate-btn">Donate Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&h=600&fit=crop" alt="Helping children">
+            <div class="slide-content">
+                <h1>Welcome to Relief Mission Foundation</h1>
+                <div class="cta-buttons">
+                    <a href="#donate" class="cta-button cta-primary">Donate Fund</a>
+                    <a href="#join" class="cta-button cta-secondary">Join Us</a>
+                    <a href="#internship" class="cta-button cta-secondary">Internship Programs</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&h=600&fit=crop" alt="Education">
+            <div class="slide-content">
+                <h1>Put Your Faith Into Action</h1>
+                <div class="cta-buttons">
+                    <a href="#donate" class="cta-button cta-primary">Donate Fund</a>
+                    <a href="#join" class="cta-button cta-secondary">Join Us</a>
+                    <a href="#internship" class="cta-button cta-secondary">Internship Programs</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1200&h=600&fit=crop" alt="Support">
+            <div class="slide-content">
+                <h1>Your Support Is Powerful</h1>
+                <div class="cta-buttons">
+                    <a href="#donate" class="cta-button cta-primary">Donate Fund</a>
+                    <a href="#join" class="cta-button cta-secondary">Join Us</a>
+                    <a href="#internship" class="cta-button cta-secondary">Internship Programs</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200&h=600&fit=crop" alt="Community">
+            <div class="slide-content">
+                <h1>Make Someone's Life By Giving Of Yours</h1>
+                <div class="cta-buttons">
+                    <a href="#donate" class="cta-button cta-primary">Donate Fund</a>
+                    <a href="#join" class="cta-button cta-secondary">Join Us</a>
+                    <a href="#internship" class="cta-button cta-secondary">Internship Programs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=400&fit=crop" alt="Children">
+                </div>
+                <div class="about-text">
+                    <h2>"Relief Mission" (Ek Kadam Rahat ki aur…)</h2>
+                    <p>Relief Mission Foundation is a registered charitable foundation. Our aim is creating a long and strong relationship between individuals to generate funds for the well-being of children and needy persons.</p>
+                    <p>Situated in Jaipur, Relief Mission Foundation works closely with children taking care of their day-to-day needs. With your help and support, we can change the way these children live and provide them a new meaning to their lives.</p>
+                    <p>Relief Mission Foundation needs your support to help children and women.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="missions">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; color: #2d7a4d; margin-bottom: 50px;">Our Missions</h2>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=400&h=200&fit=crop" alt="Medical Emergency">
+                    <h3>Medical Emergency</h3>
+                    <p>"I won't give up on you, so don't give up on me." We provide financial assistance to sick children so that they can be properly treated. We work 24×7 to ensure robust health with nutritional food.</p>
+                </div>
+
+                <div class="mission-card">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=200&fit=crop" alt="Women Empowerment">
+                    <h3>Women Empowerment</h3>
+                    <p>Women Empowerment refers to giving power to women - providing opportunities to flourish financially, academically, and socially. We work towards equal opportunities and education for all women.</p>
+                </div>
+
+                <div class="mission-card">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=200&fit=crop" alt="Education">
+                    <h3>Better Quality of Education</h3>
+                    <p>Education is the right of every child. We help children get better access to primary and secondary education. Your support opens new doors of hope and lights the lamp in their darkness.</p>
+                </div>
+
+                <div class="mission-card">
+                    <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&h=200&fit=crop" alt="Shelter">
+                    <h3>Shelter for Homeless</h3>
+                    <p>"Homelessness is not a choice, but rather a journey that many find themselves in." We provide shelter and good livelihood to children who struggle on the roadways of our country.</p>
+                </div>
+
+                <div class="mission-card">
+                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=400&h=200&fit=crop" alt="Tree Planting">
+                    <h3>Plant a Tree, Grant Life</h3>
+                    <p>"If you plant a tree, you plant so many lives." Trees make the environment cleaner and provide oxygen. They're essential for life to flourish and help reduce pollution effects.</p>
+                </div>
+
+                <div class="mission-card">
+                    <img src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=400&h=200&fit=crop" alt="Animal Welfare">
+                    <h3>Animals - The Beauty of Nature</h3>
+                    <p>We're actively involved in animal welfare. Our goal is to give the gift of life to as many street animals as possible and enrich the lives of those who adopt them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section faq-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; color: #2d7a4d; margin-bottom: 50px;">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    How will my small contribution make a difference?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Every drop in the ocean counts. No matter how small you think your contribution may be, we assure you that it'll make a big difference to children's lives.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is the advantage of becoming a monthly donor?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    When you donate on a monthly basis, not only do you help us create a larger impact on the lives of children, but you also help us plan our work at the grassroots level more efficiently. Auto-recurring monthly donations help reduce costs.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Are my online transactions secure?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutely. We have stringent security measures in place to ensure that critically sensitive information, such as your personal information and credit/debit card details, are protected.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>📞 +91 7428411323</p>
+                <p>✉️ info@reliefmission.org</p>
+                <p>📍 Kotputli, Jaipur (303108)</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#about">About Us</a>
+                <a href="#missions">Our Missions</a>
+                <a href="#donate">Donate</a>
+                <a href="#join">Join Us</a>
+            </div>
+            <div class="footer-section">
+                <h3>Get Involved</h3>
+                <a href="#internship">Internship Programs</a>
+                <a href="#volunteer">Volunteer</a>
+                <a href="#campaign">Join Campaign</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#terms">Terms & Conditions</a>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#faq">FAQs</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Relief Mission Foundation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hero slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        setInterval(nextSlide, 5000);
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const wasActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
